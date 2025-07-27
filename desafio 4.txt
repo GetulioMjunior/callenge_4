@@ -1,0 +1,68 @@
+📚 Desafio de Codificação para Iniciantes em JavaScript: Mesclar Inventário da Biblioteca com Registros de Empréstimo
+
+🌟 Objetivo
+
+Escreva uma função JavaScript que mescle dois arrays de objetos relacionados a livros em um único, combinando informações do inventário com o status de empréstimo e filtrando os resultados com base no status de devolução.
+
+⸻
+
+📝 Cenário
+
+Você está trabalhando em um sistema de biblioteca. Você recebe dois arrays:
+
+bookInventory: contém metadados sobre os livros (por exemplo, título, autor, ISBN).
+
+borrowRecords: contém o status de empréstimo dos livros (por exemplo, se o livro está atualmente emprestado).
+
+Cada livro possui um ISBN único. Sua tarefa é:
+
+Mesclar os dois arrays em uma única lista, onde cada item inclua tanto as informações do livro quanto o status de empréstimo.
+
+Se um livro existir em bookInventory, mas não em borrowRecords, considere que ele não foi emprestado (borrowed: false).
+
+Retornar apenas os livros que estão atualmente emprestados ou que não possuem registro de empréstimo (devemos excluir apenas os livros que foram marcados como devolvidos).
+
+⸻
+
+✅ Requisitos
+
+Crie uma função chamada mergeBorrowedBooks(bookInventory, borrowRecords).
+
+O array retornado deve incluir:
+
+Todos os campos de cada livro presente em bookInventory.
+
+Um novo campo borrowed que será:
+
+true se existir um registro correspondente em borrowRecords com borrowed: true.
+
+false se nenhum registro for encontrado.
+
+Exclua qualquer livro que tenha um registro correspondente em borrowRecords com borrowed: false.
+
+⸻
+
+🧪 Exemplo
+
+javascript
+Copiar
+Editar
+const bookInventory = [
+  { isbn: 'A123', title: 'Eloquent JavaScript', author: 'Marijn Haverbeke' },
+  { isbn: 'B456', title: 'You Don’t Know JS', author: 'Kyle Simpson' },
+  { isbn: 'C789', title: 'JavaScript: The Good Parts', author: 'Douglas Crockford' },
+];
+
+const borrowRecords = [
+  { isbn: 'A123', borrowed: true },
+  { isbn: 'B456', borrowed: false }
+];
+
+mergeBorrowedBooks(bookInventory, borrowRecords);
+
+/* Saída esperada:
+[
+  { isbn: 'A123', title: 'Eloquent JavaScript', author: 'Marijn Haverbeke', borrowed: true },
+  { isbn: 'C789', title: 'JavaScript: The Good Parts', author: 'Douglas Crockford', borrowed: false }
+]
+*/
